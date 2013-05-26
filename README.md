@@ -27,6 +27,7 @@ This is a repo based upon https://github.com/irmantas/symfony2-vagrant with a fe
 
 ## Installed components
 * Wordpress 1.3.5
+* Added [Joe Bartlett's .gitignore](https://gist.github.com/jdbartlett/444295) into /www - take a look at it, it's nice.
 * [Nginx](http://nginx.org/en/) using puppet module from [example42](https://github.com/example42/puppet-nginx)
 * [MySQL](http://www.mysql.com/) using puppet module from [example42](https://github.com/example42/puppet-mysql)
 * [PHP-FPM](http://php-fpm.org/) (PHP 5.4)
