@@ -1,6 +1,6 @@
 # Vagrant, Nginx, Puppet base repo
 
-This is a repo based upon https://github.com/irmantas/symfony2-vagrant with a few little tweaks to make a little more generic for my personal projects.
+This is a repo based upon https://github.com/irmantas/symfony2-vagrant with a few little tweaks to make a little more generic for my personal wordpress projects.
 
 
 ## Installation
@@ -9,7 +9,7 @@ This is a repo based upon https://github.com/irmantas/symfony2-vagrant with a fe
 * Install Vagrant using using the [installation instructions](http://docs.vagrantup.com/v2/installation/index.html)
 * Clone this repository
 
-    ```$ git clone https://github.com/irmantas/symfony2-vagrant.git```
+    ```$ git clone https://github.com/MikeRogers0/vagrant-nginx-wordpress-puppet.git```
     
 * install git submodules
     ```$ git submodule update --init```
@@ -21,26 +21,18 @@ This is a repo based upon https://github.com/irmantas/symfony2-vagrant with a fe
 
 * Vagrant automatically setups database with this setup:
 
-    * Username: symfony
-    * Password: symfony-vagrant
-    * Database: symfony
+    * Username: wordpress
+    * Password: wordpress-vagrant
+    * Database: wordpress
 
 ## Installed components
-
+* Wordpress 1.3.5
 * [Nginx](http://nginx.org/en/) using puppet module from [example42](https://github.com/example42/puppet-nginx)
 * [MySQL](http://www.mysql.com/) using puppet module from [example42](https://github.com/example42/puppet-mysql)
 * [PHP-FPM](http://php-fpm.org/) (PHP 5.4)
-* [MongoDB](http://www.mongodb.org/)
-* [GiT](http://git-scm.com/)
-* [Composer](http://getcomposer.org) installed globaly (use ```$ composer self-update``` to get the newest version)
 * [PEAR](http://pear.php.net/)
 * [cURL](http://curl.haxx.se/)
-* [Node.js](http://nodejs.org/)
-* [npm](https://npmjs.org/)
-* [sass](http://sass-lang.com/)
 * [Imagic](http://www.imagemagick.org/script/index.php)
-* [phpqatools](http://phpqatools.org/) using puppet module from ([https://github.com/rafaelfelix/puppet-phpqatools](https://github.com/rafaelfelix/puppet-phpqatools))
-* [redis](http://redis.io/) using the puppet module from ([https://github.com/example42/puppet-redis](https://github.com/example42/puppet-redis))
 
 ## Thanks to
 
@@ -54,4 +46,3 @@ This is a repo based upon https://github.com/irmantas/symfony2-vagrant with a fe
 To speed up the startup process use ```$ vagrant up --no-provision``` (thanks to [caramba1337](https://github.com/caramba1337))
 
 ## TODO
-* Remove PEAR. It slows the up times to much.

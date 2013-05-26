@@ -16,31 +16,11 @@ class system-update {
 
 class dev-packages {
 
-    $devPackages = [ "vim", "curl", "git", "nodejs", "npm", "capistrano", "rubygems", "openjdk-7-jdk", "libaugeas-ruby" ]
+    $devPackages = [ "vim", "curl"]
     package { $devPackages:
         ensure => "installed",
         require => Exec['apt-get update'],
     }
-
-    exec { 'install less using npm':
-        command => 'npm install less -g',
-        require => Package["npm"],
-    }
-
-    /*exec { 'install capifony using RubyGems':
-        command => 'gem install capifony',
-        require => Package["rubygems"],
-    }
-
-    exec { 'install sass with compass using RubyGems':
-        command => 'gem install compass',
-        require => Package["rubygems"],
-    }
-
-    exec { 'install capistrano_rsync_with_remote_cache using RubyGems':
-        command => 'gem install capistrano_rsync_with_remote_cache',
-        require => Package["capistrano"],
-    }*/
 }
 
 class nginx-setup {
@@ -72,11 +52,11 @@ class { "mysql":
     root_password => 'auto',
 }
 
-mysql::grant { 'symfony':
+mysql::grant { 'wordpress':
     mysql_privileges => 'ALL',
-    mysql_password => 'symfony-vagrant',
-    mysql_db => 'symfony',
-    mysql_user => 'symfony',
+    mysql_password => 'wordpress-vagrant',
+    mysql_db => 'wordpress',
+    mysql_user => 'wordpress',
     mysql_host => 'localhost',
 }
 
@@ -93,11 +73,6 @@ class php-setup {
         command => '/usr/bin/apt-get update',
         before => Package[$php],
         require => Exec['add-apt-repository ppa:ondrej/php5'],
-    }
-
-    package { "mongodb":
-        ensure => present,
-        require => Package[$php],
     }
 
     package { $php:
@@ -120,15 +95,6 @@ class php-setup {
         ensure => present,
         require => Package["imagemagick"],
     }
-
-   /* exec { 'pecl install mongo':
-        notify => Service["php5-fpm"],
-        command => '/usr/bin/pecl install --force mongo',
-        logoutput => "on_failure",
-        require => Package[$php],
-        before => [File['/etc/php5/cli/php.ini'], File['/etc/php5/fpm/php.ini'], File['/etc/php5/fpm/php-fpm.conf'], File['/etc/php5/fpm/pool.d/www.conf']],
-        unless => "/usr/bin/php -m | grep mongo",
-    }*/
 
     file { '/etc/php5/cli/php.ini':
         owner  => root,
@@ -173,28 +139,7 @@ class php-setup {
         ensure => running,
         require => Package["php5-fpm"],
     }
-
-    /*service { "mongodb":
-        ensure => running,
-        require => Package["mongodb"],
-    }*/
 }
-
-class composer {
-    exec { 'install composer php dependency management':
-        command => 'curl -s http://getcomposer.org/installer | php -- --install-dir=/usr/bin && mv /usr/bin/composer.phar /usr/bin/composer',
-        creates => '/usr/bin/composer',
-        require => [Package['php5-cli'], Package['curl']],
-    }
-}
-
-class memcached {
-    package { "memcached":
-        ensure => present,
-    }
-}
-
-class { "redis": }
 
 class { 'apt':
     always_apt_update    => true
@@ -206,7 +151,3 @@ include system-update
 include dev-packages
 include nginx-setup
 include php-setup
-#include composer
-#include phpqatools
-#include memcached
-include redis
