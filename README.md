@@ -1,6 +1,6 @@
 # Vagrant, Nginx, Puppet base repo
 
-This is a repo based upon https://github.com/irmantas/symfony2-vagrant with a few little tweaks to make a little more generic for my personal wordpress projects.
+This is a repo based upon https://github.com/irmantas/symfony2-vagrant with a few little tweaks to make a little more generic for this application
 
 
 ## Installation
@@ -17,17 +17,9 @@ This is a repo based upon https://github.com/irmantas/symfony2-vagrant with a fe
 * run vagrant (for the first time it should take up to 10-15 min)
     ```$ vagrant up```
     
-* Web server is accessible with http://33.33.33.100 (IP address can be changed in Vagrantfile)
-
-* Vagrant automatically setups database with this setup:
-
-    * Username: wordpress
-    * Password: wordpress-vagrant
-    * Database: wordpress
+* Web server is accessible with http://33.33.33.10 (IP address can be changed in Vagrantfile)
 
 ## Installed components
-* Wordpress 1.3.5
-* Added [Joe Bartlett's .gitignore](https://gist.github.com/jdbartlett/444295) into /www - take a look at it, it's nice.
 * [Nginx](http://nginx.org/en/) using puppet module from [example42](https://github.com/example42/puppet-nginx)
 * [MySQL](http://www.mysql.com/) using puppet module from [example42](https://github.com/example42/puppet-mysql)
 * [PHP-FPM](http://php-fpm.org/) (PHP 5.4)
