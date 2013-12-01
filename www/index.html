@@ -1,84 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-    <meta charset="utf-8">
-    <title>iCantBudget</title>  
-    <link rel="stylesheet" href="css/main.css"/>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<link rel="stylesheet" href="css/lib/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+
+
+	<script data-main="js/main" src="js/libs/require/require.js"></script>
+
 </head>
+  <body>
 
-<script type="text/javascript">
-    localStorage.clear();
-</script>
-
-<body>
-
-    <div id="current-balance">
-        <header>
-            <h1>Current Balance:</h1>
-            <span class="balance">£1200</span>
-        </header>
-    </div>
-
-    <div id="daily-allowance">
-        <header>
-            <h1>Daily Allowance</h1>
-            <input id="new-todo" type="text" placeholder="How much do you need daily?">
-        </header>
-        <section id="main">
-            <input id="toggle-all" type="checkbox">
-            <label for="toggle-all">Mark all as complete</label>
-            <ul id="todo-list"></ul>
-        </section>
-        <footer>
-            <a id="clear-completed">Clear completed</a>
-            <div id="todo-count"></div>
-        </footer>
-    </div>
-
-    <div id="countdown">
-        <header>
-            <h1>You will be skint in...</h1>
-            <div class="time">
-                <span class="days">0<br /><br />days</span>
-                <span class="hours">0<br /><br />hours</span>
-                <span class="mins">0<br /><br />mins</span>
-            </div>
-        </header>
-    </div>
-
-    <div id="outgoings">
-        <header>
-            <h1>Add an outgoing</h1>
-            <input id="new-outgoing" type="text" placeholder="Add outgoing title here">
-            <input id="new-outgoing" class="outgoing-cost" type="text" placeholder="Add outgoing cost here">
-        </header>
-        <section id="main">
-            <ul id="outgoings-list"></ul>
-        </section>
-    </div>  
-
-    <script src="core/js/vendor/json2.js"></script>
-    <script src="core/js/vendor/jquery.js"></script>
-    <script src="core/js/vendor/underscore.js"></script>
-    <script src="core/js/backbone.js"></script>
-    <script src="core/js/backbone.localStorage.js"></script>
-    <script src="core/js/outgoings.js"></script>
-
-    <!-- Templates -->
-
-    <script type="text/template" id="item-template">
-        <div class="view">
-            <label><%- title %></label>
-            <label>£<%- cost %></label>
+    <div id="container" class="container">
+      <header>
+        <div id="logo">
+          <h1>iCantBudget</h1>
         </div>
-        <input class="edit" type="text" value="<%- title %>" />
-        <input class="edit" type="text" value="£<%- cost %>" />
-    </script>
+      </header>
 
-    <script type="text/template" id="stats-template">
-        <div class="todo-count"><b><%= remaining %></b> <%= remaining == 1 ? 'item' : 'items' %> left</div>
-    </script>
+      <div id="main">
+        Loading....
+      </div>
+
+      <footer id="footer">
+      </footer>
+
+    </div> 
 
   </body>
 </html>
